@@ -61,16 +61,14 @@ let elem1 = $(".inner");
 //console.log(elem1);
 $(elem1).css({fontSize: 35});
 //====== Task 4 =============
-let elem2 = $("input").on("change", function(){
-let countChecked = $(':checkbox:checked').length;
+const $elemcheckbox = $('input');
+$elemcheckbox.on('click', function(){
+let countChecked = $('input:checked').length;
 console.log(countChecked);
-if (countChecked=3){
-    $.each(elem2, function(index, value){
-     $elem2.attr('disabled');
-    })
-}
-}
-);
+if (countChecked==3){
+     $elemcheckbox.attr('disabled', 'true');
+    }
+});
 
 //====== Task 5 =============
 let string ="Java Script"
@@ -79,7 +77,7 @@ console.log(result1);
 
 //====== Task 6 =============
 function checkmail(mail){
-    let regExp = /^[^_-][\w-\d*]+@[\w\d]+(\.\w{2,4})$/;
+    let regExp = /^[^_-]\w+(-?\w+)*@\w+(-?\w+)*(\.\w{2,4})$/;
      //   ^  beginig of the line,
     // \w  matches any alphanumeric character (plus underscore), equivalent to [A-Za-z_0-9]
     // - matches "-"
@@ -93,7 +91,7 @@ function checkmail(mail){
     return result;
     };
     
-    let mail = 'my_mail@gmail.com'
+    let mail = 'my_--mail@gmail.com'
 if (checkmail(mail)){
     console.log("Email is correct!");
 } else {
